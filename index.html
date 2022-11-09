@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>JustStreamIt</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
 </head>
 <body>
     <header>
@@ -13,27 +14,130 @@
             <div>Catégories</div>
         </nav>
     </header>
-    <div classe="best-movie">
-
+    <div class="best-movie" data-movie-id="">
+        <div class="best-movie-title"></div>
+        <img class="best-movie-image" src="" alt="">
+        <button>Show</button>
     </div>
 
     <div class="best-movies">
         <h2>Films les mieux notés</h2>
-        <div class="slider">
-            <button class="slider-arrow" id="slide-arrow-prev">
+        <div class="slider" data-page="1">
+            <button class="slider-arrow-prev" data-page="">
                 &#8249;
             </button>
-            <button class="slider-arrow" id="slide-arrow-next">
+            <div class="slides-movies">
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+            </div>
+            <button class="slider-arrow-next" data-page="">
                 &#8250;
             </button>
-            <ul class="slides-container" id="slides-container">
-                <li class="slide">Alpha</li>
-                <li class="slide">Beta</li>
-            </ul>
         </div>
     </div>
 
-    <script src="js/slider.js"></script>
+    <div class="category-Sci-Fi">
+        <h2>Les meilleurs films de Science Fiction</h2>
+        <div class="slider" data-page="1" data-category="Sci-Fi">
+            <button class="slider-arrow-prev" data-page="">
+                &#8249;
+            </button>
+            <div class="slides-movies">
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+            </div>
+            <button class="slider-arrow-next" data-page="">
+                &#8250;
+            </button>
+        </div>
+    </div>
+
+    <div class="category-Fantasy">
+        <h2>Les meilleurs films de Fantasy</h2>
+        <div class="slider" data-page="1" data-category="Fantasy">
+            <button class="slider-arrow-prev" data-page="">
+                &#8249;
+            </button>
+            <div class="slides-movies">
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+            </div>
+            <button class="slider-arrow-next" data-page="">
+                &#8250;
+            </button>
+        </div>
+    </div>
+
+    <div class="category-Animation">
+        <h2>Les meilleurs films d'Animation</h2>
+        <div class="slider" data-page="1" data-category="Animation">
+            <button class="slider-arrow-prev" data-page="">
+                &#8249;
+            </button>
+            <div class="slides-movies">
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+            </div>
+            <button class="slider-arrow-next" data-page="">
+                &#8250;
+            </button>
+        </div>
+    </div>
+
+    <div class="modal movie-modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Modal Header</h2>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the Modal Body</p>
+                <p>Some other text...</p>
+            </div>
+        </div>
+    </div>
+
     <script src="js/ajax.js"></script>
 </body>
 </html>
