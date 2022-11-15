@@ -78,7 +78,7 @@ function display_best_movie(best_movie) {
     let best_movie_dom = document.querySelector(".best-movie")
     // load best movie title
     let title_dom_element = best_movie_dom.querySelector(".best-movie-title")
-    title_dom_element.innerHTML = best_movie.title
+    title_dom_element.innerHTML = best_movie.original_title
     // load best movie image
     let img_dom_element = best_movie_dom.querySelector("img")
     img_dom_element.src = best_movie.image_url
@@ -142,7 +142,7 @@ function update_slider_arrows(slider_dom) {
 async function update_slider_movies(slider_dom) {
     let category = slider_dom.dataset.category
     let page_number = slider_dom.dataset.page
-    let page_size = 4
+    let page_size = 7
 
     let response_json = await get_json_response_movies(page_size, page_number, category)
     let movies = response_json.results
@@ -170,7 +170,7 @@ function init_modal() {
     let modal = document.querySelector(".movie-modal");
 
     // Get the <span> element that closes the modal
-    let span = document.getElementsByClassName("close")[0];
+    let span = document.querySelector(".modal-close");
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
@@ -192,7 +192,15 @@ async function load_movie_data_in_modal(movie_id) {
     // display movie datas in modal
     let movie_modal_dom = document.querySelector(".movie-modal")
     let modal_title_dom = movie_modal_dom.querySelector(".modal-header h2")
-    modal_title_dom.innerHTML = movie.title
+    modal_title_dom.innerHTML = movie.original_title
+    let movie_image_dom = movie_modal_dom.querySelector(".modal-movie-image img")
+    movie_image_dom.src = movie.image_url
+    let movie_infos_dom = movie_modal_dom.querySelectorAll(".modal-movie-infos li")
+    movie_infos_dom.forEach(function (li){
+        let li_data = li.dataset.value
+        li.querySelector("span").innerHTML = movie[li_data]
+    })
+
 }
 
 

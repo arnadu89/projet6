@@ -20,10 +20,10 @@
         <button>Show</button>
     </div>
 
-    <div class="best-movies">
+    <section class="best-movies">
         <h2>Films les mieux notés</h2>
         <div class="slider" data-page="1">
-            <button class="slider-arrow-prev" data-page="">
+            <button class="slider-arrow slider-arrow-prev" data-page="">
                 &#8249;
             </button>
             <div class="slides-movies">
@@ -39,17 +39,26 @@
                 <div class="slide-movie" data-movie-id="">
                     <img src="" alt="">
                 </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
             </div>
-            <button class="slider-arrow-next" data-page="">
+            <button class="slider-arrow slider-arrow-next" data-page="">
                 &#8250;
             </button>
         </div>
-    </div>
+    </section>
 
-    <div class="category-Sci-Fi">
+    <section class="category-Sci-Fi">
         <h2>Les meilleurs films de Science Fiction</h2>
         <div class="slider" data-page="1" data-category="Sci-Fi">
-            <button class="slider-arrow-prev" data-page="">
+            <button class="slider-arrow slider-arrow-prev" data-page="">
                 &#8249;
             </button>
             <div class="slides-movies">
@@ -65,17 +74,26 @@
                 <div class="slide-movie" data-movie-id="">
                     <img src="" alt="">
                 </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
             </div>
-            <button class="slider-arrow-next" data-page="">
+            <button class="slider-arrow slider-arrow-next" data-page="">
                 &#8250;
             </button>
         </div>
-    </div>
+    </section>
 
-    <div class="category-Fantasy">
+    <section class="category-Fantasy">
         <h2>Les meilleurs films de Fantasy</h2>
         <div class="slider" data-page="1" data-category="Fantasy">
-            <button class="slider-arrow-prev" data-page="">
+            <button class="slider-arrow slider-arrow-prev" data-page="">
                 &#8249;
             </button>
             <div class="slides-movies">
@@ -91,17 +109,26 @@
                 <div class="slide-movie" data-movie-id="">
                     <img src="" alt="">
                 </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
             </div>
-            <button class="slider-arrow-next" data-page="">
+            <button class="slider-arrow slider-arrow-next" data-page="">
                 &#8250;
             </button>
         </div>
-    </div>
+    </section>
 
-    <div class="category-Animation">
+    <section class="category-Animation">
         <h2>Les meilleurs films d'Animation</h2>
         <div class="slider" data-page="1" data-category="Animation">
-            <button class="slider-arrow-prev" data-page="">
+            <button class="slider-arrow slider-arrow slider-arrow-prev" data-page="">
                 &#8249;
             </button>
             <div class="slides-movies">
@@ -117,23 +144,45 @@
                 <div class="slide-movie" data-movie-id="">
                     <img src="" alt="">
                 </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
+                <div class="slide-movie" data-movie-id="">
+                    <img src="" alt="">
+                </div>
             </div>
-            <button class="slider-arrow-next" data-page="">
+            <button class="slider-arrow slider-arrow slider-arrow-next" data-page="">
                 &#8250;
             </button>
         </div>
-    </div>
+    </section>
 
     <div class="modal movie-modal">
         <!-- Modal content -->
         <div class="modal-content">
             <div class="modal-header">
-                <span class="close">&times;</span>
+                <span class="modal-close">&times;</span>
                 <h2>Modal Header</h2>
             </div>
             <div class="modal-body">
-                <p>Some text in the Modal Body</p>
-                <p>Some other text...</p>
+                <div class="modal-movie-image">
+                    <img src="" alt="">
+                </div>
+                <ul class="modal-movie-infos">
+                    <li data-value="genres">Genres : <span></span></li>
+                    <li data-value="date_published">Date de sortie : <span></span></li>
+                    <li data-value="rated">Rated : <span></span></li>
+                    <li data-value="imdb_score">Score IMDB : <span></span></li>
+                    <li data-value="directors">Réalisateurs : <span></span></li>
+                    <li data-value="actors">Acteurs : <span></span></li>
+                    <li data-value="duration">Durée : <span></span> minutes</li>
+                    <li data-value="countries">Pays d'origine : <span></span></li>
+                    <li data-value="worldwide_gross_income">Résultat au box office : <span></span> $</li>
+                    <li data-value="long_description">Résumé : <span></span></li>
+                </ul>
             </div>
         </div>
     </div>
