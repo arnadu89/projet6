@@ -1,10 +1,3 @@
-var my_headers = new Headers();
-
-//var myInit = {
-//    method: "GET",
-//    headers: my_headers,
-//}
-
 // http://localhost:8000/api/v1/titles/?
 // format=json
 // page_size=10
@@ -25,42 +18,47 @@ async function request_api(url) {
     }
 }
 
-//async function get_json_response_movies(api_method, page_size, page_number=1) {
-async function get_json_response_movies(page_size, page_number=1, category=undefined) {
-    if (category === undefined) {
-        var get_parameters = new URLSearchParams({
-        format: 'json',
-        page_size: page_size,
-        sort_by: '-imdb_score',
-        page: page_number,
-        })
-    } else {
-        var get_parameters = new URLSearchParams({
-        format: 'json',
-        page_size: page_size,
-        sort_by: '-imdb_score',
-        page: page_number,
-        genre: category,
-        })
-    }
+function set_parameters_for_movie_request(page_size, page_number=1) {
+    let get_parameters = new URLSearchParams({
+            format: 'json',
+            page_size: page_size,
+            sort_by: '-imdb_score',
+            page: page_number,
+            })
+    return get_parameters
+}
 
-//    var url = base_url_api + api_method + get_parameters
-    var url = base_url_api + get_parameters
+function set_parameters_for_movie_request_with_genre(page_size, page_number=1, genre) {
+    let get_parameters = set_parameters_for_movie_request(page_size, page_number)
+    get_parameters.append("genre", genre)
+    return get_parameters
+}
+
+async function get_simple_json_response_movies(page_size, page_number=1) {
+    let get_parameters = set_parameters_for_movie_request(page_size, page_number)
+    let url = base_url_api + get_parameters
     let response_json = await request_api(url)
     return response_json
+}
 
+async function get_genre_json_response_movies(genre, page_size, page_number=1) {
+    let get_parameters = set_parameters_for_movie_request_with_genre(page_size, page_number, genre)
+    let url = base_url_api + get_parameters
+    let response_json = await request_api(url)
+    return response_json
 }
 
 async function get_json_response_movie_from_id(movie_id) {
-    var url = base_url_api.slice(0, -1) + movie_id
+    let url = base_url_api.slice(0, -1) + movie_id
     let response_json = await request_api(url)
     return response_json
 }
 
 // Best movie
 async function get_best_movie() {
-    let response_json = await get_json_response_movies(1)
-    let best_movie = response_json.results[0]
+    let response_json = await get_simple_json_response_movies(1)
+    let best_movie_id = response_json.results[0].id
+    let best_movie = await get_json_response_movie_from_id(best_movie_id)
     display_best_movie(best_movie)
 
     // link modal to best movie
@@ -78,7 +76,7 @@ function display_best_movie(best_movie) {
     let best_movie_dom = document.querySelector(".best-movie")
     // load best movie title
     let title_dom_element = best_movie_dom.querySelector(".best-movie-title")
-    title_dom_element.innerHTML = best_movie.original_title
+    title_dom_element.textContent = best_movie.original_title
     // load best movie image
     let img_dom_element = best_movie_dom.querySelector("img")
     img_dom_element.src = best_movie.image_url
@@ -112,7 +110,6 @@ function init_slider(slider_dom) {
 
     // Init modal on movie slides
     let movie_slides_dom = slider_dom.querySelectorAll(".slides-movies div")
-    console.log(movie_slides_dom)
     movie_slides_dom.forEach(function (slide_movie) {
         slide_movie.addEventListener("click", function() {
             let modal = document.querySelector(".movie-modal");
@@ -140,11 +137,17 @@ function update_slider_arrows(slider_dom) {
 }
 
 async function update_slider_movies(slider_dom) {
-    let category = slider_dom.dataset.category
+    let genre = slider_dom.dataset.genre
     let page_number = slider_dom.dataset.page
-    let page_size = 7
+    let page_size = slider_dom.querySelectorAll(".slides-movies div").length
+    let response_json
 
-    let response_json = await get_json_response_movies(page_size, page_number, category)
+    if (genre !== undefined) {
+        response_json = await get_genre_json_response_movies(genre, page_size, page_number)
+    } else {
+        response_json = await get_simple_json_response_movies(page_size, page_number)
+    }
+
     let movies = response_json.results
     display_movies_in_slider(slider_dom, movies)
     update_slider_arrows(slider_dom)
@@ -191,16 +194,18 @@ async function load_movie_data_in_modal(movie_id) {
 
     // display movie datas in modal
     let movie_modal_dom = document.querySelector(".movie-modal")
+    // display title
     let modal_title_dom = movie_modal_dom.querySelector(".modal-header h2")
-    modal_title_dom.innerHTML = movie.original_title
+    modal_title_dom.textContent = movie.original_title
+    // display image
     let movie_image_dom = movie_modal_dom.querySelector(".modal-movie-image img")
     movie_image_dom.src = movie.image_url
+    // display others infos
     let movie_infos_dom = movie_modal_dom.querySelectorAll(".modal-movie-infos li")
     movie_infos_dom.forEach(function (li){
         let li_data = li.dataset.value
-        li.querySelector("span").innerHTML = movie[li_data]
+        li.querySelector("span").textContent = movie[li_data]
     })
-
 }
 
 
@@ -216,4 +221,3 @@ async function load_movie_data_in_modal(movie_id) {
 
     init_modal()
 })();
-

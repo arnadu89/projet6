@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>JustStreamIt</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
 </head>
 <body>
     <header>
@@ -15,17 +15,23 @@
         </nav>
     </header>
     <div class="best-movie" data-movie-id="">
-        <div class="best-movie-title"></div>
-        <img class="best-movie-image" src="" alt="">
-        <button>Show</button>
+        <div>
+            <h2 class="best-movie-title"></h2>
+            <button>Show</button>
+        </div>
+        <div>
+            <img class="best-movie-image" src="" alt="">
+        </div>
     </div>
 
     <section class="best-movies">
         <h2>Films les mieux notés</h2>
         <div class="slider" data-page="1">
-            <button class="slider-arrow slider-arrow-prev" data-page="">
-                &#8249;
-            </button>
+            <div class="div-arrow">
+                <button class="slider-arrow slider-arrow-prev" data-page="">
+                    &#8249;
+                </button>
+            </div>
             <div class="slides-movies">
                 <div class="slide-movie" data-movie-id="">
                     <img src="" alt="">
@@ -49,18 +55,22 @@
                     <img src="" alt="">
                 </div>
             </div>
-            <button class="slider-arrow slider-arrow-next" data-page="">
-                &#8250;
-            </button>
+            <div class="div-arrow">
+                <button class="slider-arrow slider-arrow-next" data-page="">
+                    &#8250;
+                </button>
+            </div>
         </div>
     </section>
 
-    <section class="category-Sci-Fi">
+    <section class="genre-Sci-Fi">
         <h2>Les meilleurs films de Science Fiction</h2>
-        <div class="slider" data-page="1" data-category="Sci-Fi">
-            <button class="slider-arrow slider-arrow-prev" data-page="">
-                &#8249;
-            </button>
+        <div class="slider" data-page="1" data-genre="Sci-Fi">
+            <div class="div-arrow">
+                <button class="slider-arrow slider-arrow-prev" data-page="">
+                    &#8249;
+                </button>
+            </div>
             <div class="slides-movies">
                 <div class="slide-movie" data-movie-id="">
                     <img src="" alt="">
@@ -84,18 +94,22 @@
                     <img src="" alt="">
                 </div>
             </div>
-            <button class="slider-arrow slider-arrow-next" data-page="">
-                &#8250;
-            </button>
+            <div class="div-arrow">
+                <button class="slider-arrow slider-arrow-next" data-page="">
+                    &#8250;
+                </button>
+            </div>
         </div>
     </section>
 
-    <section class="category-Fantasy">
+    <section class="genre-Fantasy">
         <h2>Les meilleurs films de Fantasy</h2>
-        <div class="slider" data-page="1" data-category="Fantasy">
-            <button class="slider-arrow slider-arrow-prev" data-page="">
-                &#8249;
-            </button>
+        <div class="slider" data-page="1" data-genre="Fantasy">
+            <div class="div-arrow">
+                <button class="slider-arrow slider-arrow-prev" data-page="">
+                    &#8249;
+                </button>
+            </div>
             <div class="slides-movies">
                 <div class="slide-movie" data-movie-id="">
                     <img src="" alt="">
@@ -119,18 +133,22 @@
                     <img src="" alt="">
                 </div>
             </div>
-            <button class="slider-arrow slider-arrow-next" data-page="">
-                &#8250;
-            </button>
+            <div class="div-arrow">
+                <button class="slider-arrow slider-arrow-next" data-page="">
+                    &#8250;
+                </button>
+            </div>
         </div>
     </section>
 
-    <section class="category-Animation">
+    <section class="genre-Animation">
         <h2>Les meilleurs films d'Animation</h2>
-        <div class="slider" data-page="1" data-category="Animation">
-            <button class="slider-arrow slider-arrow slider-arrow-prev" data-page="">
-                &#8249;
-            </button>
+        <div class="slider" data-page="1" data-genre="Animation">
+            <div class="div-arrow">
+                <button class="slider-arrow slider-arrow-prev" data-page="">
+                    &#8249;
+                </button>
+            </div>
             <div class="slides-movies">
                 <div class="slide-movie" data-movie-id="">
                     <img src="" alt="">
@@ -154,9 +172,11 @@
                     <img src="" alt="">
                 </div>
             </div>
-            <button class="slider-arrow slider-arrow slider-arrow-next" data-page="">
-                &#8250;
-            </button>
+            <div class="div-arrow">
+                <button class="slider-arrow slider-arrow-next" data-page="">
+                    &#8250;
+                </button>
+            </div>
         </div>
     </section>
 

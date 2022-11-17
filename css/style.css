@@ -29,6 +29,12 @@ header nav div {
     width: auto;
     border: 1px solid red;
     display: flex;
+    align-items: center;
+}
+
+.best-movie div {
+    text-align: center;
+    padding: 10px;
 }
 
 /* Slider */
@@ -40,11 +46,21 @@ header nav div {
     align-items: center;
 }
 
+.slider .div-arrow {
+    width: 35px;
+}
+
+.slider-arrow {
+    width: 35px;
+    height: 35px;
+    border-radius: 25%;
+}
+
 .slides-movies {
-    height: 270px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .slide-movie {
@@ -53,9 +69,3 @@ header nav div {
     border: 1px solid blue;
 }
 
-.slider-arrow {
-    width: 35px;
-    height: 35px;
-    border-radius: 25%;
-    /*position: absolute;*/
-}
