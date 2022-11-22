@@ -54,6 +54,17 @@ async function get_json_response_movie_from_id(movie_id) {
     return response_json
 }
 
+// Dom manipulation
+function change_child_image(dom_element, image_src, image_alt) {
+    if (dom_element.hasChildNodes()) {
+        dom_element.removeChild(dom_element.firstChild)
+    }
+    let img_dom_element = document.createElement('img')
+    img_dom_element.src = image_src
+    img_dom_element.alt = image_alt
+    dom_element.appendChild(img_dom_element)
+}
+
 // Best movie
 async function get_best_movie() {
     let response_json = await get_simple_json_response_movies(1)
@@ -78,8 +89,13 @@ function display_best_movie(best_movie) {
     let title_dom_element = best_movie_dom.querySelector(".best-movie-title")
     title_dom_element.textContent = best_movie.original_title
     // load best movie image
-    let img_dom_element = best_movie_dom.querySelector("img")
-    img_dom_element.src = best_movie.image_url
+    let best_movie_div_image_dom = best_movie_dom.querySelector(".best-movie-div-image")
+    change_child_image(
+        best_movie_div_image_dom,
+        best_movie.image_url,
+        best_movie.original_title
+    )
+
     // load best movie id data
     best_movie_dom.dataset.movieId = best_movie.id
 
@@ -159,9 +175,12 @@ function display_movies_in_slider(slider_dom, movies) {
         let slide_movie_dom = slider_dom.querySelector(
             ".slides-movies div:nth-child("+ (i+1).toString() +")"
         )
-        let movie_img_dom = slide_movie_dom.querySelector("img")
-        let movie_image = movie.image_url
-        movie_img_dom.src = movie_image
+
+        change_child_image(
+            slide_movie_dom,
+            movie.image_url,
+            movie.original_title
+        )
 
         slide_movie_dom.dataset.movieId = movie.id
     });
@@ -198,8 +217,13 @@ async function load_movie_data_in_modal(movie_id) {
     let modal_title_dom = movie_modal_dom.querySelector(".modal-header h2")
     modal_title_dom.textContent = movie.original_title
     // display image
-    let movie_image_dom = movie_modal_dom.querySelector(".modal-movie-image img")
-    movie_image_dom.src = movie.image_url
+    let movie_div_image_dom = movie_modal_dom.querySelector(".modal-movie-image")
+
+    change_child_image(
+        movie_div_image_dom,
+        movie.image_url,
+        movie.original_title
+    )
     // display others infos
     let movie_infos_dom = movie_modal_dom.querySelectorAll(".modal-movie-infos li")
     movie_infos_dom.forEach(function (li){

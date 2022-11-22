@@ -25,7 +25,7 @@ header nav div {
 
 /* Best movie */
 .best-movie {
-    height: 270px;
+    height: auto;
     width: auto;
     border: 1px solid red;
     display: flex;
@@ -34,7 +34,7 @@ header nav div {
 
 .best-movie div {
     text-align: center;
-    padding: 10px;
+    margin: 0 20px;
 }
 
 /* Slider */
@@ -67,5 +67,6 @@ header nav div {
     width: 200px;
     height: 270px;
     border: 1px solid blue;
+    text-align: center;
 }
 
