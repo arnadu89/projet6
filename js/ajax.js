@@ -88,6 +88,9 @@ function display_best_movie(best_movie) {
     // load best movie title
     let title_dom_element = best_movie_dom.querySelector(".best-movie-title")
     title_dom_element.textContent = best_movie.original_title
+    // load best movie description
+    let description_dom_element = best_movie_dom.querySelector(".best-movie-description")
+    description_dom_element.textContent = best_movie.long_description
     // load best movie image
     let best_movie_div_image_dom = best_movie_dom.querySelector(".best-movie-div-image")
     change_child_image(
